@@ -2,6 +2,8 @@ import express from 'express';
 import path from 'path';
 import { title } from 'process';
 import { fileURLToPath } from 'url';
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
 
 const app = express();
 const PORT = 5000;
@@ -9,6 +11,14 @@ const PORT = 5000;
 // necessary for using __dirname with ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// conect to database
+async function openDb() {
+  return open({
+    filename: path.join(__dirname, 'Database', 'wildlife.db'),
+    driver: sqlite3.Database
+  });
+}
 
 // Feeding the static files
 app.use(express.static(path.join(__dirname, 'public')));
