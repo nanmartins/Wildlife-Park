@@ -7,6 +7,22 @@
   <%- include('../partials/header') %>
 
   <h1>Experiences Page</h1>
+
+  <% if (experiences.length === 0) { %>
+    <p>No experiences found.</p>
+  <% } %>
+
+  <% experiences.forEach(exp => { %>
+    <div>
+      <h2><%= exp.name %></h2>
+      <p><%= exp.description %></p>
+
+      <% if (exp.image) { %>
+        <img src="<%= exp.image %>" width="200">
+      <% } %>
+    </div>
+  <% }) %>
+
   <a href="/">Back to Home</a>
 
   <%- include('../partials/footer') %>

@@ -7,6 +7,21 @@
   <%- include('../partials/header') %>
 
   <h1>Habitats Page</h1>
+
+  <% if (habitats.length === 0) { %>
+    <p>No habitats found.</p>
+  <% } %>
+
+  <% habitats.forEach(habitat => { %>
+    <div>
+      <h2><%= habitat.name %></h2>
+      <p><%= habitat.description %></p>
+
+      <% if (habitat.image) { %>
+        <img src="<%= habitat.image %>" width="200">
+      <% } %>
+    </div>
+  <% }) %>
   <a href="/">Back to Home</a>
 
   <%- include('../partials/footer') %>
