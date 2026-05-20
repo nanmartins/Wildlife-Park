@@ -1,0 +1,27 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap');
+
+/* Utilities */
+.container {
+  width: min(100% - 2rem, var(--container-width));
+  margin-inline: auto;
+}
+
+.section {
+  padding: 7rem 0;
+}
+
+.section-label {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.section-centered {
+  max-width: 850px;
+  margin-inline: auto;
+  text-align: center;
+}
