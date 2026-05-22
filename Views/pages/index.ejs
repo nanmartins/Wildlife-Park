@@ -7,26 +7,43 @@
 
   <%- include('../partials/header') %>
 
-  <main>
-    <section class="home-hero">
-      <div class="hero-container">
-        <h1>Discover the Wonder of Nature</h1>
+  <main id="main-content">
+
+    <section class="home-hero" aria-labelledby="hero-title">
+      <div class="home-hero__overlay"></div>
+
+      <div class="home-hero__content">
+        <!-- <p class="home-hero__badge">
+          <span aria-hidden="true">◷</span>
+          Open Daily 9am - 6pm
+        </p> -->
+
+        <h1 id="hero-title">Wildwood Park</h1>
 
         <p class="hero-description">
-          Immerse yourself in breathtaking wildlife habitats.
-          From the misty Rainforest Canopy to the golden Savannah Plains,
-          adventure awaits at every turn.
+          Where wonder meets wilderness
         </p>
 
-        <div class="hero-actions">
-          <a href="/habitats" class="btn btn-primary">Explore the Park</a>
-          <a href="/contact" class="btn btn-secondary">Get in Touch</a>
+        <a href="/habitats" class="btn btn-primary">
+          Begin Your Journey
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <div class="scroll-indicator" aria-hidden="true">
+          <div class="scroll-mouse">
+            <span></span>
+          </div>
+
+          <p>Scroll</p>
         </div>
+
       </div>
     </section>
+
   </main>
 
   <%- include('../partials/footer') %>
 
 </body>
+
 </html>

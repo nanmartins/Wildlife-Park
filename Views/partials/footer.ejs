@@ -1,6 +1,71 @@
-<footer>
-  <p>Copyright &copy;
-    <%= new Date().getFullYear() %>
-    , Wildwood Park
-  </p>
+<footer class="site-footer">
+
+  <div class="footer-container">
+
+    <div class="footer-brand">
+
+      <a
+        href="/"
+        class="footer-logo"
+        aria-label="Wildwood Park homepage"
+      >
+        <img
+          src="/images/logo.png"
+          alt="Wildwood Park logo"
+          class="footer-logo__image"
+        >
+
+        <span class="footer-logo__text">
+          Wildwood Park
+        </span>
+      </a>
+
+      <p class="footer-description">
+        A sanctuary where wildlife, conservation, and unforgettable
+        experiences come together in harmony with nature.
+      </p>
+
+    </div>
+
+    <nav
+      class="footer-nav"
+      aria-label="Footer navigation"
+    >
+
+      <div class="footer-nav__group">
+
+        <h2>Explore</h2>
+
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/habitats">Habitats</a></li>
+          <li><a href="/experiences">Experiences</a></li>
+        </ul>
+
+      </div>
+
+      <div class="footer-nav__group">
+
+        <h2>Information</h2>
+
+        <ul>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+
+      </div>
+
+    </nav>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <p>
+      © <%= new Date().getFullYear() %> Wildwood Park.
+      All rights reserved.
+    </p>
+
+  </div>
+
 </footer>
