@@ -1,30 +1,3 @@
-<!-- <header>
-  <div class="header-container">
-
-    <a href="/" class="brand-logo">
-      <span>Wildwood Park</span>
-    </a>
-
-    <nav aria-label="main-navigation">
-      <ul class="nav-list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/habitats">Habitats</a></li>
-        <li><a href="/experiences">Experiences</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <p class="opening-times">
-      Open daily
-      <time datetime="09:00">9am</time>
-      -
-      <time datetime="18:00">6pm</time>
-    </p>
-
-  </div>
-</header> -->
-
 <header class="site-header">
   <div class="header-container">
 
@@ -46,7 +19,9 @@
     </nav>
 
     <p class="opening-times" aria-label="Opening times">
-      <span aria-hidden="true">◷</span>
+      <span class="open-clock-icon">
+        <%- include('./icons/clock') %>
+      </span>
       <span>
         Open Daily
         <time datetime="09:00">9am</time>
