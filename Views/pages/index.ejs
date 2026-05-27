@@ -9,14 +9,11 @@
 
   <main id="main-content">
 
+    <!-- HOME HERO -->
     <section class="home-hero" aria-labelledby="hero-title">
       <div class="home-hero__overlay"></div>
 
       <div class="home-hero__content">
-        <!-- <p class="home-hero__badge">
-          <span aria-hidden="true">◷</span>
-          Open Daily 9am - 6pm
-        </p> -->
 
         <h1 id="hero-title">Wildwood Park</h1>
 
@@ -37,6 +34,143 @@
           <p>Scroll</p>
         </div>
 
+      </div>
+    </section>
+
+    <!-- HOME PHILOSOPHY -->
+    <section class="home-philosophy" aria-labelledby="philosophy-title">
+      <div class="container home-philosophy__content">
+
+        <p class="section-label">Our Philosophy</p>
+
+        <h2 id="philosophy-title">
+          Nature is not a place to visit.
+          <span>It is home.</span>
+        </h2>
+
+        <p class="home-philosophy__description">
+          At Wildwood Park, we believe every creature has a story worth telling.
+          We have created a sanctuary where wildlife flourishes and visitors discover
+          the profound connection between humanity and the natural world.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- FEATURE CARDS -->
+    <section class="home-feature-cards" aria-label="Featured park areas">
+
+      <article class="feature-card feature-card--habitats">
+        <div class="feature-card__content">
+          <p class="feature-card__label">Explore</p>
+
+          <h2>Four Worlds Await</h2>
+
+          <p>
+            From misty rainforests to golden savannahs, discover
+            ecosystems that transport you across the globe.
+          </p>
+
+          <a href="/habitats" class="feature-card__button">
+            Discover Habitats
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="feature-card feature-card--experiences">
+        <div class="feature-card__content">
+          <p class="feature-card__label">Experience</p>
+
+          <h2>Moments That Matter</h2>
+
+          <p>
+            Guided tours, keeper encounters, and adventures that
+            create lasting memories for all ages.
+          </p>
+
+          <a href="/experiences" class="feature-card__button">
+            View Experiences
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- HOME VALUES -->
+     <section class="home-values" aria-labelledby="values-title">
+      <div class="container">
+
+        <div class="home-values__header">
+          <p class="section-label">What We Stand For</p>
+
+          <h2 id="values-title">
+            Conservation at Heart
+          </h2>
+        </div>
+
+        <div class="home-values__grid">
+
+          <article class="value-card">
+            <div class="value-card__icon" aria-hidden="true">
+              <%- include('../partials/icons/leaf') %>
+            </div>
+
+            <h3>Sustainability</h3>
+
+            <p>
+              Every aspect of our park is designed with environmental responsibility
+              in mind, from renewable energy to zero-waste initiatives.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-card__icon" aria-hidden="true">
+              <%- include('../partials/icons/heart') %>
+            </div>
+
+            <h3>Animal Welfare</h3>
+
+            <p>
+              Our animals live in spacious, naturalistic habitats designed by experts
+              to ensure their physical and psychological wellbeing.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-card__icon" aria-hidden="true">
+              <%- include('../partials/icons/globe') %>
+            </div>
+
+            <h3>Global Impact</h3>
+
+            <p>
+              We partner with conservation programmes worldwide to protect endangered
+              species and preserve critical habitats.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOME CTA -->
+    <section class="home-cta" aria-labelledby="home-cta-title">
+      <div class="home-cta__overlay"></div>
+
+      <div class="home-cta__content">
+        <h2 id="home-cta-title">Ready to explore?</h2>
+
+        <p>
+          Plan your visit and discover a world where every path leads to wonder.
+        </p>
+
+        <div class="home-cta__actions">
+          <a href="/habitats" class="btn btn-primary">Explore Habitats</a>
+          <a href="/contact" class="btn btn-secondary-light">Plan Your Visit</a>
+        </div>
       </div>
     </section>
 
