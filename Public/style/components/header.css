@@ -155,6 +155,10 @@
   flex-shrink: 0;
 }
 
+.opening-times time:first-of-type {
+  margin-left: 0.75rem;
+}
+
 .open-clock-icon {
   display: inline-flex;
   align-items: center;
