@@ -1,29 +1,235 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <%- include('../partials/head') %>
 
 <body>
   <%- include('../partials/header') %>
 
-  <h1>Experiences Page</h1>
+  <main id="main-content">
 
-  <% if (experiences.length === 0) { %>
-    <p>No experiences found.</p>
-  <% } %>
+    <section class="experiences-hero" aria-labelledby="experiences-title">
+      <div class="container experiences-hero__content">
+        <p class="section-label">Experiences</p>
 
-  <% experiences.forEach(exp => { %>
-    <div>
-      <h2><%= exp.name %></h2>
-      <p><%= exp.description %></p>
+        <h1 id="experiences-title">Moments That Matter</h1>
 
-      <% if (exp.image) { %>
-        <img src="<%= exp.image %>" width="200">
-      <% } %>
-    </div>
-  <% }) %>
+        <p>
+          Beyond exploring our habitats, discover hands-on experiences that bring
+          you closer to wildlife. From intimate keeper encounters to thrilling
+          night safaris, create memories that last a lifetime.
+        </p>
+      </div>
+    </section>
 
-  <a href="/">Back to Home</a>
+    <section class="signature-experiences" aria-labelledby="signature-title">
+      <div class="container">
+
+        <div class="experiences-section-header">
+          <p class="section-label">Signature Experiences</p>
+          <h2 id="signature-title">Extraordinary Encounters</h2>
+        </div>
+
+        <% const signatureExperiences = experiences.filter(exp => exp.section === 'signature'); %>
+
+        <% if (signatureExperiences.length === 0) { %>
+          <p class="empty-message">No signature experiences found.</p>
+        <% } %>
+
+        <% signatureExperiences.forEach((exp, index) => { %>
+          <% const reverseClass = index % 2 !== 0 ? 'experience-feature--reverse' : ''; %>
+
+          <article class="experience-feature <%= reverseClass %>">
+
+            <div class="experience-feature__image">
+              <img src="<%= exp.image %>" alt="<%= exp.name %>">
+
+              <% if (exp.badge) { %>
+                <span class="experience-badge">
+                  <span aria-hidden="true">☆</span>
+                  <%= exp.badge %>
+                </span>
+              <% } %>
+            </div>
+
+            <div class="experience-feature__content">
+
+              <div class="experience-heading-row">
+                <div class="experience-icon" aria-hidden="true">
+                  <% if (exp.icon === 'camera') { %>
+                    <%- include('../partials/icons/camera') %>
+                  <% } else if (exp.icon === 'compass') { %>
+                    <%- include('../partials/icons/compass') %>
+                  <% } %>
+                </div>
+
+                <p class="experience-subtitle"><%= exp.subtitle %></p>
+              </div>
+
+              <h3><%= exp.name %></h3>
+
+              <p class="experience-description">
+                <%= exp.description %>
+              </p>
+
+              <% if (exp.features) { %>
+                <ul class="experience-features">
+                  <% exp.features.split(',').forEach(feature => { %>
+                    <li><%= feature.trim() %></li>
+                  <% }) %>
+                </ul>
+              <% } %>
+
+              <div class="experience-meta">
+                <% if (exp.duration) { %>
+                  <span>
+                    <%- include('../partials/icons/clock') %>
+                    <%= exp.duration %>
+                  </span>
+                <% } %>
+
+                <% if (exp.schedule) { %>
+                  <span>
+                    <%- include('../partials/icons/calendar') %>
+                    <%= exp.schedule %>
+                  </span>
+                <% } %>
+              </div>
+
+              <a href="/contact" class="btn btn-primary">
+                Enquire Now
+                <span aria-hidden="true">→</span>
+              </a>
+
+            </div>
+
+          </article>
+        <% }) %>
+
+      </div>
+    </section>
+
+
+    <section class="daily-activities" aria-labelledby="daily-title">
+      <div class="container">
+
+        <div class="experiences-section-header">
+          <p class="section-label">Included with Entry</p>
+          <h2 id="daily-title">Daily Activities</h2>
+          <p>
+            These experiences are available every day and most are included with your park entry.
+          </p>
+        </div>
+
+        <% const dailyActivities = experiences.filter(exp => exp.section === 'daily'); %>
+
+        <div class="daily-activities__grid">
+          <% dailyActivities.forEach(exp => { %>
+            <article class="daily-card">
+
+              <div class="daily-card__icon" aria-hidden="true">
+                <% if (exp.icon === 'group') { %>
+                  <%- include('../partials/icons/group') %>
+                <% } else if (exp.icon === 'bird') { %>
+                  <%- include('../partials/icons/bird') %>
+                <% } else if (exp.icon === 'map') { %>
+                  <%- include('../partials/icons/map') %>
+                <% } else if (exp.icon === 'dining') { %>
+                  <%- include('../partials/icons/dining') %>
+                <% } %>
+              </div>
+
+              <div>
+                <h3>
+                  <%= exp.name %>
+                  <% if (exp.subtitle) { %>
+                    <span><%= exp.subtitle %></span>
+                  <% } %>
+                </h3>
+
+                <p><%= exp.description %></p>
+
+                <div class="daily-card__meta">
+                  <% if (exp.schedule) { %>
+                    <span>
+                      <%- include('../partials/icons/clock') %>
+                      <%= exp.schedule %>
+                    </span>
+                  <% } %>
+
+                  <% if (exp.duration) { %>
+                    <span><%= exp.duration %></span>
+                  <% } %>
+                </div>
+              </div>
+
+            </article>
+          <% }) %>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="family-programs" aria-labelledby="family-title">
+      <div class="container">
+
+        <div class="experiences-section-header">
+          <p class="section-label">For Families</p>
+          <h2 id="family-title">Young Explorer Programs</h2>
+          <p>
+            Special experiences designed to inspire the next generation of wildlife champions.
+          </p>
+        </div>
+
+        <% const familyPrograms = experiences.filter(exp => exp.section === 'families'); %>
+
+        <div class="family-programs__grid">
+          <% familyPrograms.forEach(exp => { %>
+            <article class="family-card">
+
+              <div class="family-card__icon" aria-hidden="true">
+                <% if (exp.icon === 'child') { %>
+                  <%- include('../partials/icons/child') %>
+                <% } else if (exp.icon === 'sparkle') { %>
+                  <%- include('../partials/icons/sparkle') %>
+                <% } else if (exp.icon === 'heart') { %>
+                  <%- include('../partials/icons/heart') %>
+                <% } %>
+              </div>
+
+              <p class="family-card__age"><%= exp.subtitle %></p>
+
+              <h3><%= exp.name %></h3>
+
+              <p><%= exp.description %></p>
+
+            </article>
+          <% }) %>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="experiences-cta" aria-labelledby="experiences-cta-title">
+      <div class="container experiences-cta__content">
+
+        <h2 id="experiences-cta-title">
+          Questions about our experiences?
+        </h2>
+
+        <p>
+          Check our FAQ for visiting information or get in touch with our team.
+        </p>
+
+        <div class="experiences-cta__actions">
+          <a href="/faq" class="btn btn-light">View FAQ</a>
+          <a href="/contact" class="btn btn-outline-light">Contact Us</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
 
   <%- include('../partials/footer') %>
 </body>

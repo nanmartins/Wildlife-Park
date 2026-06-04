@@ -54,6 +54,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // middleware
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 
 // EJS configuration
@@ -113,19 +114,43 @@ app.get('/contact', (req, res) => {
 
 app.post('/contact', async (req, res) => {
   try {
-    const { name, email, message } = req.body;
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      subject,
+      message
+    } = req.body;
+
+    if (!firstName || !lastName || !email || !subject || !message) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please complete all required fields.'
+      });
+    }
 
     const db = await openDb();
 
     await db.run(
-      'INSERT INTO contact (name, email, message) VALUES (?, ?, ?)',
-      [name, email, message]
+      `INSERT INTO contact
+      (first_name, last_name, email, phone, subject, message)
+      VALUES (?, ?, ?, ?, ?, ?)`,
+      [firstName, lastName, email, phone || null, subject, message]
     );
 
-    res.send('Message sent successfully.');
+    res.status(200).json({
+      success: true,
+      message: 'Message sent successfully.'
+    });
+
   } catch (error) {
     console.error(error);
-    res.status(500).send('Error submitting contact form');
+
+    res.status(500).json({
+      success: false,
+      message: 'Error submitting contact form.'
+    });
   }
 });
 
@@ -133,7 +158,20 @@ app.post('/contact', async (req, res) => {
 app.get('/contact-submissions', async (req, res) => {
   try {
     const db = await openDb();
-    const messages = await db.all('SELECT * FROM contact ORDER BY created_at DESC');
+
+    const messages = await db.all(`
+      SELECT
+        id,
+        first_name,
+        last_name,
+        email,
+        phone,
+        subject,
+        message,
+        created_at
+      FROM contact
+      ORDER BY created_at DESC
+    `);
 
     res.json(messages);
   } catch (error) {
