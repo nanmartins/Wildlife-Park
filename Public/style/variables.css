@@ -19,8 +19,7 @@
   --transition-fast: 0.2s ease;
   --transition-medium: 0.3s ease;
 
-  --shadow-soft:
-    0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
 
   --border-radius: 18px;
 }

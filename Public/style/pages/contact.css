@@ -183,3 +183,53 @@
 .contact-form__button {
   width: 100%;
 }
+
+
+/* ------------- Submit feedback ------------- */
+.form-feedback {
+  position: fixed;
+
+  bottom: 2rem;
+  right: 2rem;
+
+  width: min(500px, calc(100vw - 2rem));
+
+  padding: 1rem 1.25rem;
+
+  border-radius: 0.75rem;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+
+  z-index: 1000;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.form-feedback--success {
+  background-color: #509e60;
+  color: white;
+  border: 1px solid rgba(56, 56, 56, 0.7);
+
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-feedback--error {
+  background-color: #da4a40;
+  color: white;
+  border: 1px solid rgba(56, 56, 56, 0.7);
+
+  opacity: 1;
+  transform: translateY(0);
+}

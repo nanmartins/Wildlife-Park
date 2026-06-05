@@ -6,23 +6,143 @@
 <body>
   <%- include('../partials/header') %>
 
-  <h1>Habitats Page</h1>
+  <main id="main-content">
 
-  <% if (habitats.length === 0) { %>
-    <p>No habitats found.</p>
-  <% } %>
+    <section class="habitats-hero" aria-labelledby="habitats-title">
+      <div class="container habitats-hero__content">
 
-  <% habitats.forEach(habitat => { %>
-    <div>
-      <h2><%= habitat.name %></h2>
-      <p><%= habitat.description %></p>
+        <p class="section-label">
+          Our Habitats
+        </p>
 
-      <% if (habitat.image) { %>
-        <img src="<%= habitat.image %>" width="200">
+        <h1 id="habitats-title">
+          Four Worlds, One Park
+        </h1>
+
+        <p>
+          Each habitat at Wildwood Park has been meticulously designed to
+          recreate authentic ecosystems where wildlife can thrive.
+          Explore environments spanning from tropical rainforests
+          to ocean depths.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- Habitats List -->
+    <section class="habitats-list" aria-label="Wildwood Park habitats">
+
+      <% if (habitats.length === 0) { %>
+      <p class="empty-message">No habitats found.</p>
       <% } %>
-    </div>
-  <% }) %>
-  <a href="/">Back to Home</a>
+
+      <% habitats.forEach((habitat, index) => { %>
+      <article class="habitat-feature <%= index % 2 !== 0 ? 'habitat-feature--reverse' : '' %>">
+
+        <div class="habitat-feature__image">
+          <img src="<%= habitat.image %>" alt="<%= habitat.name %> habitat">
+
+          <div class="habitat-feature__icon" style="background-color: <%= habitat.theme_color %>;" aria-hidden="true">
+            <% if (habitat.id === 1) { %>
+              <%- include('../partials/icons/tree') %>
+
+            <% } else if (habitat.id === 2) { %>
+              <%- include('../partials/icons/sun') %>
+
+            <% } else if (habitat.id === 3) { %>
+              <%- include('../partials/icons/skull') %>
+
+            <% } else if (habitat.id === 4) { %>
+              <%- include('../partials/icons/waves') %>
+
+            <% } %>
+          </div>
+        </div>
+
+        <div class="habitat-feature__content">
+          <p class="section-label"><%= habitat.subtitle %></p>
+
+          <h2><%= habitat.name %></h2>
+
+          <p class="habitat-feature__intro">
+            <%= habitat.description %>
+          </p>
+
+          <p class="habitat-feature__details">
+            <%= habitat.details %>
+          </p>
+
+          <div class="habitat-info-grid">
+            <div class="habitat-info-card">
+
+              <span class="habitat-info-card__icon">
+                <%- include('../partials/icons/location') %>
+              </span>
+
+              <span><%= habitat.info_one_label %></span>
+              <strong><%= habitat.info_one_value %></strong>
+            </div>
+
+
+            <div class="habitat-info-card">
+
+              <span class="habitat-info-card__icon">
+                <%- include('../partials/icons/group') %>
+              </span>
+
+              <span><%= habitat.info_two_label %></span>
+              <strong><%= habitat.info_two_value %></strong>
+            </div>
+
+
+            <div class="habitat-info-card">
+
+              <span class="habitat-info-card__icon">
+                <%- include('../partials/icons/clock') %>
+              </span>
+
+              <span><%= habitat.info_three_label %></span>
+              <strong><%= habitat.info_three_value %></strong>
+            </div>
+          </div>
+
+          <div class="featured-animals">
+            <h3>Featured Animals</h3>
+
+            <div class="featured-animals__list">
+              <% habitat.featured_animals.split(',').forEach(animal => { %>
+              <span><%= animal.trim() %></span>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+
+      </article>
+      <% }) %>
+
+    </section>
+
+    <section class="habitats-cta" aria-labelledby="habitats-cta-title">
+      <div class="container habitats-cta__content">
+
+        <h2 id="habitats-cta-title">
+          Ready to explore all four worlds?
+        </h2>
+
+        <p>
+          Discover the experiences and activities that bring our habitats to life.
+        </p>
+
+        <a href="/experiences" class="btn btn-light">
+          View Experiences
+          <span aria-hidden="true">→</span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
 
   <%- include('../partials/footer') %>
 </body>
