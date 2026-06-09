@@ -44,16 +44,16 @@
           <img src="<%= habitat.image %>" alt="<%= habitat.name %> habitat">
 
           <div class="habitat-feature__icon" style="background-color: <%= habitat.theme_color %>;" aria-hidden="true">
-            <% if (habitat.id === 1) { %>
+            <% if (index === 0) { %>
               <%- include('../partials/icons/tree') %>
 
-            <% } else if (habitat.id === 2) { %>
+            <% } else if (index === 1) { %>
               <%- include('../partials/icons/sun') %>
 
-            <% } else if (habitat.id === 3) { %>
+            <% } else if (index === 2) { %>
               <%- include('../partials/icons/skull') %>
 
-            <% } else if (habitat.id === 4) { %>
+            <% } else if (index === 3) { %>
               <%- include('../partials/icons/waves') %>
 
             <% } %>

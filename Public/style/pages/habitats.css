@@ -83,8 +83,8 @@
   top: 2rem;
   left: 2rem;
 
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 4rem;
+  height: 4rem;
 
   display: flex;
   align-items: center;
@@ -270,4 +270,180 @@
   line-height: 1.6;
 
   color: rgba(255, 255, 255, 0.78);
+}
+
+
+/* -------------- Media Queries -------------- */
+@media (max-width: 1200px) {
+  .habitats-list {
+    padding: 0 2rem;
+  }
+
+  .habitat-feature__content {
+    padding: 4rem 3rem;
+  }
+
+  .habitat-feature__image {
+    min-height: 36rem;
+  }
+
+  .habitat-feature__content h2 {
+    font-size: 2.2rem;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .habitats-hero {
+    padding: 5rem 0 4rem;
+  }
+
+  .habitats-hero__content {
+    text-align: center;
+  }
+
+  .habitats-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .habitats-hero p:last-child {
+    font-size: 1rem;
+  }
+
+  .habitats-list {
+    padding: 0;
+  }
+
+  .habitat-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .habitat-feature--reverse .habitat-feature__image,
+  .habitat-feature--reverse .habitat-feature__content {
+    order: initial;
+  }
+
+  .habitat-feature__image {
+    min-height: 24rem;
+  }
+
+  .habitat-feature__content {
+    padding: 3rem 2rem;
+  }
+
+  .habitat-feature__content h2 {
+    font-size: 2rem;
+  }
+
+  .habitat-info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .habitats-cta {
+    padding: 5rem 2rem;
+  }
+
+  .habitats-cta h2 {
+    font-size: 2.3rem;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .habitats-hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .habitats-hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.1;
+  }
+
+  .habitats-hero p:last-child {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .habitat-feature__image {
+    min-height: 18rem;
+  }
+
+  .habitat-feature__icon {
+    width: 2.8rem;
+    height: 2.8rem;
+
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .habitat-feature__icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .habitat-feature__content {
+    padding: 2rem 1.5rem;
+  }
+
+  .habitat-feature__content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .habitat-feature__intro {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .habitat-feature__details {
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  .habitat-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .habitat-info-card {
+    padding: 1rem;
+  }
+
+  .habitat-info-card__icon svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .habitat-info-card span {
+    font-size: 0.7rem;
+  }
+
+  .habitat-info-card strong {
+    font-size: 0.8rem;
+  }
+
+  .featured-animals h3 {
+    font-size: 0.85rem;
+  }
+
+  .featured-animals__list {
+    gap: 0.5rem;
+  }
+
+  .featured-animals__list span {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .habitats-cta {
+    padding: 4rem 1.5rem;
+  }
+
+  .habitats-cta h2 {
+    font-size: 2rem;
+  }
+
+  .habitats-cta p {
+    font-size: 1rem;
+  }
 }

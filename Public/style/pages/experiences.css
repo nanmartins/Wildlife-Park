@@ -12,6 +12,7 @@
 
 .experiences-hero__content {
   max-width: 1100px;
+  margin-inline: auto;
 }
 
 .experiences-hero h1 {
@@ -63,7 +64,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 1100px;
-  justify-self: center;
+  margin-inline: auto;
   gap: 3.5rem;
 
   align-items: center;
@@ -277,7 +278,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   max-width: 1100px;
-  justify-self: center;
+  margin-inline: auto;
 }
 
 .daily-card {
@@ -384,7 +385,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   max-width: 1100px;
-  justify-self: center;
+  margin-inline: auto;
 }
 
 .family-card {
@@ -500,17 +501,225 @@
   background-color: rgba(255, 255, 255, 0.12);
 }
 
-/* ========================================
-   RESPONSIVE
-======================================== */
 
+
+/* ------------- Media Queries ------------- */
 @media (max-width: 900px) {
-  .daily-activities__grid,
-  .family-programs__grid {
+  .experiences-hero {
+    padding: 4rem 0;
+  }
+
+  .experiences-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .signature-experiences,
+  .daily-activities,
+  .family-programs {
+    padding: 5rem 0;
+  }
+
+  .experiences-section-header {
+    margin-bottom: 4rem;
+  }
+
+  .experience-feature {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    margin-bottom: 4rem;
+  }
+
+  .experience-feature--reverse .experience-feature__image,
+  .experience-feature--reverse .experience-feature__content {
+    order: initial;
+  }
+
+  .experience-feature__content {
+    max-width: 100%;
+  }
+
+  .experience-feature__image img {
+    height: 24rem;
+  }
+
+  .daily-activities__grid {
     grid-template-columns: 1fr;
   }
 
   .daily-card {
+    grid-template-columns: auto 1fr;
+  }
+
+  .family-programs__grid {
     grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  .experiences-cta {
+    padding: 4rem 1.5rem;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .experiences-hero {
+    padding: 3rem 0;
+  }
+
+  .experiences-hero h1 {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  .experiences-hero p:last-child {
+    font-size: 0.95rem;
+  }
+
+  .experiences-section-header h2 {
+    font-size: 2rem;
+  }
+
+  .experiences-section-header > p:last-child {
+    font-size: 0.95rem;
+  }
+
+  .experience-feature {
+    gap: 1.5rem;
+  }
+
+  .experience-feature__image img {
+    height: 18rem;
+  }
+
+  .experience-badge {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.7rem;
+  }
+
+  .experience-heading-row {
+    gap: 0.75rem;
+  }
+
+  .experience-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .experience-icon svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .experience-feature__content h3 {
+    font-size: 1.6rem;
+  }
+
+  .experience-description {
+    font-size: 0.9rem;
+  }
+
+  .experience-features li {
+    font-size: 0.85rem;
+  }
+
+  .experience-meta {
+    gap: 1rem;
+  }
+
+  .experience-meta span {
+    font-size: 0.8rem;
+  }
+
+  .daily-card {
+    padding: 1.5rem;
+
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .daily-card__icon {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .daily-card__icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .daily-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .daily-card p {
+    font-size: 0.85rem;
+  }
+
+  .daily-card__meta {
+    font-size: 0.8rem;
+  }
+
+  .family-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .family-card__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .family-card__icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .family-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .family-card p:last-child {
+    font-size: 0.85rem;
+  }
+
+  .experiences-cta h2 {
+    font-size: 1.8rem;
+  }
+
+  .experiences-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .experiences-cta__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .experiences-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .experiences-section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .experience-feature__content h3 {
+    font-size: 1.4rem;
+  }
+
+  .experience-feature__image img {
+    height: 15rem;
+  }
+
+  .family-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .experiences-cta h2 {
+    font-size: 1.6rem;
   }
 }
