@@ -8,7 +8,19 @@
       </span>
     </a>
 
-    <nav class="site-nav" aria-label="Main navigation">
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="main-navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="main-navigation" class="site-nav" aria-label="Main navigation">
       <ul class="nav-list">
         <li><a href="/">Home</a></li>
         <li><a href="/habitats">Habitats</a></li>
@@ -18,7 +30,7 @@
       </ul>
     </nav>
 
-    <p class="opening-times" aria-label="Opening times">
+    <p class="opening-times">
       <span class="open-clock-icon">
         <%- include('./icons/clock') %>
       </span>
@@ -32,3 +44,5 @@
 
   </div>
 </header>
+
+<script src="/scripts/header.js"></script>
